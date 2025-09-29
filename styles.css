@@ -1,0 +1,10 @@
+#h1 {
+    display: flex;
+    justify-content: center;
+    font: normal 80px 'Michroma', sans-serif;
+    color: blue;
+}
+
+svg path[data-name]:hover {
+    fill:blue !important;
+}
