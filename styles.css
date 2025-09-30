@@ -1,10 +1,26 @@
+body {
+    background-color: rgb(231, 209, 229);
+}
+
 #h1 {
     display: flex;
     justify-content: center;
-    font: normal 80px 'Michroma', sans-serif;
-    color: blue;
+    font: normal 60px 'Irish Grover', system-ui;
+    color: rgb(255, 0, 191);
+}
+
+#h2 {
+    display: flex;
+    justify-content: center;
+    font: normal 40px 'Irish Grover', system-ui;
+    color: rgb(202, 91, 187);
+}
+
+svg {
+    display: block;
+    margin: auto;
 }
 
 svg path[data-name]:hover {
-    fill:blue !important;
+    fill:rgb(195, 0, 255) !important;
 }
