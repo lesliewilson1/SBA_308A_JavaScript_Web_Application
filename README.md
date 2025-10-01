@@ -4,7 +4,7 @@
 
 - A dynamic web app that lets users click on U.S. states in an SVG map to generate unique pixel-art avatars using DiceBear, fetch or post data to MockAPI, and log visual feedback in real time.
 
-##😊 Features
+## 😊 Features
 
 - 🎨 Avatar: Each state click triggers a unique DiceBear avatar using randomized seeds.
 - 🧠 MockAPI Integration: Fetches existing avatar records or creates new ones via POST, PATCH, or PUT.
