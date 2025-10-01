@@ -1,4 +1,4 @@
-#📍 Interactive SVG Map Avatar Tracker
+# 📍 Interactive SVG Map Avatar Tracker
 
 ## 📎About
 
