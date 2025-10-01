@@ -1,6 +1,5 @@
-const api = 'https://api.restful-api.dev/objects';
 
-//testing to see if api functions
+//-------------------------------------------testing to see if api functions-------------------------------------------------------------//
 
 // async function fetchApi() {
 //     try {
@@ -19,12 +18,15 @@ const api = 'https://api.restful-api.dev/objects';
 
 //------------------------------------------Generate profile pic based on state name-----------------------------------------------------//
 
-function getAvatar(state) {
-    return `https://api.dicebear.com/6.x/pixel-art/svg?seed=${encodeURIComponent(stateName)}`;
+export function getAvatar(state) {
+    return `https://api.dicebear.com/6.x/pixel-art/svg?seed=${encodeURIComponent(state)}`;
 }
 
-async function postAvatar(state) {
+getAvatar();
+
+export async function postAvatar(state) {
     const avatar = getAvatar(state);
+    const api = 'https://api.restful-api.dev/objects';
     let invalid = null;
 
     try {
@@ -41,5 +43,80 @@ async function postAvatar(state) {
         console.log('Error fetching data', error)
     }
  
-}
 
+
+//-----------------------------------------PATCH/POST/PUT-----------------------------------------------------//
+
+//Create a data backpack for api
+const backpack = {
+    name: state,
+    data: {
+        clicked: true,
+        avatar: avatar
+    }
+};
+
+//If statement to display data in console.log
+
+//PATCH example
+
+const patchBackpack = {
+    data: backpack.data
+};
+
+if (invalid) {
+    const patchUrl = `${api}/${invalid.id}`;
+    const patchResponse = await fetch(patchUrl, {
+    
+    method: 'PATCH',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(patchBackpack)
+});
+
+const patchResult = await patchResponse.json();
+console.log(patchResult);
+
+// PUT example
+
+    const putUrl = `${api}/${invalid.id}`;
+    const putResponse = await fetch(putUrl, {
+
+    method: 'PUT',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(patchBackpack)
+});
+
+const putResult = await putResponse.json();
+console.log(putResult);
+
+} else {
+
+// POST example
+
+    const postResponse = await fetch(api, {
+
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(patchBackpack)
+});
+
+const postResult = await postResponse.json();
+console.log(postResult);
+
+} 
+    
+
+
+//------------------------------------------Patch/Post/Put END-----------------------------------------------------//
+
+//Update API and log data
+
+const updatedResponse = await fetch(api);
+const updatedData = await updatedResponse.json();
+
+} //End of async function
+
+postAvatar();
+
+
+ 
