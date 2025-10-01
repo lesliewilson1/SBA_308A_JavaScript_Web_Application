@@ -18,7 +18,6 @@
 |--------------|----------------------------------------------|
 | Frontend     | Vanilla JS, SVG, DiceBear API                |
 | Backend Mock | [MockAPI.io](https://mockapi.io)             |
-| Data Format  | JSON                                          |
 | Avatar Style | `pixel-art` via DiceBear                     |
 
 
