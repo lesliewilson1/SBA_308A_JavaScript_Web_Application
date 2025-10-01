@@ -1,32 +1,16 @@
-
-//-------------------------------------------testing to see if api functions-------------------------------------------------------------//
-
-// async function fetchApi() {
-//     try {
-//         const response = await fetch(api);
-//         if (!response.ok) {
-//             throw new Error(`Error: ${response.status}`);
-//         }
-//         const data = await response.json();
-//         console.log(data);
-//     }   catch (error) {
-//         console.log('Error fetching data', error)
-//     }
-// }
-
-// fetchApi();
+//This API is 
 
 //------------------------------------------Generate profile pic based on state name-----------------------------------------------------//
 
 export function getAvatar(state) {
-    return `https://api.dicebear.com/6.x/pixel-art/svg?seed=${encodeURIComponent(state)}`;
+    const randomPics = Math.floor(Math.random() * 1000000);
+    return `https://api.dicebear.com/6.x/pixel-art/svg?seed=${encodeURIComponent(state + randomPics)}`;
 }
 
-getAvatar();
 
 export async function postAvatar(state) {
     const avatar = getAvatar(state);
-    const api = 'https://api.restful-api.dev/objects';
+    const api = 'https://68dcb02b7cd1948060ab00cb.mockapi.io/avatarprofilepic/avatarprofilepic';
     let invalid = null;
 
     try {
@@ -50,13 +34,10 @@ export async function postAvatar(state) {
 //Create a data backpack for api
 const backpack = {
     name: state,
-    data: {
-        clicked: true,
-        avatar: avatar
-    }
+    avatar: avatar,
+    
 };
 
-//If statement to display data in console.log
 
 //PATCH example
 
@@ -83,7 +64,7 @@ console.log(patchResult);
 
     method: 'PUT',
     headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify(patchBackpack)
+    body: JSON.stringify(backpack)
 });
 
 const putResult = await putResponse.json();
@@ -97,11 +78,11 @@ console.log(putResult);
 
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify(patchBackpack)
+    body: JSON.stringify(backpack)
 });
 
 const postResult = await postResponse.json();
-console.log(postResult);
+//console.log(postResult);
 
 } 
     
@@ -111,12 +92,11 @@ console.log(postResult);
 
 //Update API and log data
 
-const updatedResponse = await fetch(api);
-const updatedData = await updatedResponse.json();
+// const updatedResponse = await fetch(api);
+// const updatedData = await updatedResponse.json();
+// console.log(updatedData);
 
 } //End of async function
-
-postAvatar();
 
 
  
